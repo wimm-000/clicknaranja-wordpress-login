@@ -1,0 +1,114 @@
+/* actualizar el plugin para que los dos colores y las imaágenes sean configurables */
+
+:root {
+	--color__main: white;
+	--color__alt: #6a834a;
+}
+
+html {
+	box-sizing: border-box;
+	min-height: 100%;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body.login {
+	background: var(--color__main);
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: ". . login";
+	background: url(../images/fondo.jpg) no-repeat top left;
+	background-size: cover;
+}
+
+#login a:hover {
+	color: var(--color__alt) !important;
+}
+
+#login input[type=text],
+#login input[type=password] {
+	border-radius: 0;
+	border: 1px solid black;
+	outline: none;
+}
+
+#login input[type=text]:focus,
+#login input[type=password]:focus {
+	outline: none;
+	box-shadow: none;
+	border: 1px solid var(--color__alt);
+}
+
+.login .button.wp-hide-pw .dashicons {
+	color: black;
+}
+
+#login {
+	box-shadow: 0 0 10px rgba(0, 0, 0, .9);
+	grid-area: login;
+	display: flex;
+	padding: 10px;
+	flex-direction: column;
+	background-color: var(--color__main);
+	margin: 0;
+	box-sizing: content-box;
+	width: auto;
+}
+
+#loginform,
+#lostpasswordform {
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	padding: 0;
+}
+
+body.login div#login h1 a {
+	background-image: url(../images/logo.png);
+	background-size: contain;
+	height: auto;
+	width: auto;
+	min-height: 90px;
+	width: 95%;
+	margin-top: 15px;
+}
+
+#wp-submit {
+	background: var(--color__alt);
+	color: white;
+	width: 100%;
+	border-radius: 0;
+	font-size: 1rem;
+	border: 0;
+	margin-top: 1em;
+	;
+}
+
+#wp-submit:focus {
+	box-shadow: none;
+}
+
+#backtoblog {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	body.login {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-areas: ". . login login login login login login login login . .";
+	}
+}
+
+@media screen and (max-width: 550px) {
+	body.login {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(12, 1fr);
+		grid-template-areas: ".""login""login""login""login""login""login""login""login""login""login"".";
+	}
+}
